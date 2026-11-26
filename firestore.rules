@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Chỉ hai tài khoản này được đọc và ghi.
+    function isCouple() {
+      return request.auth != null
+        && request.auth.uid in ['ZlFQANqcVqMbpHVK0N3ZXISNcci2', 'xU7PZ7b4vWVT2RtSQGkWKLvhTk12'];
+    }
+    match /{col}/{id} {
+      allow read, write: if isCouple()
+        && col in ['wallet', 'care', 'profile', 'mood', 'ping', 'answers', 'memories', 'wishes', 'letters'];
+    }
+  }
+}
