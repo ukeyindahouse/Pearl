@@ -15,6 +15,6 @@ const firebaseConfig = {
 // 2) Dán "User UID" của hai tài khoản vào giữa hai dấu nháy.
 const UID_QUANG = "ZlFQANqcVqMbpHVK0N3ZXISNcci2";
 const UID_NGOC = "xU7PZ7b4vWVT2RtSQGkWKLvhTk12";
-
+const app = initializeApp(firebaseConfig);
 // Không sửa dòng này.
 window.APP_CONFIG = { firebaseConfig, UID_QUANG, UID_NGOC};
