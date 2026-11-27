@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Góc Của Hai Đứa</title>
+<meta name="app-version" content="2026-11-27-9d6816ae">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -183,6 +184,17 @@ body[data-ev="fest"] .scene{background-color:rgba(180,80,220,.17)}
 @keyframes stretch{45%{transform:scale(.93,1.12)}}
 @keyframes dance{25%{transform:translate(-6px,-8px) rotate(-10deg)}75%{transform:translate(6px,-8px) rotate(10deg)}}
 /* Tài khoản, cửa hàng, trò chơi */
+.pi{width:1.15em;height:1.15em;vertical-align:-.22em;flex:none}
+#sndBtn{width:48px;min-width:48px;padding:0;display:grid;place-items:center;flex:none}#sndBtn svg{width:24px;height:24px}
+#sndBtn[aria-pressed="false"]{opacity:.65}
+.snd{border:2px solid var(--line);border-radius:18px;padding:6px 12px 10px;margin:0;display:flex;flex-direction:column;gap:4px}.snd legend{font-weight:700;padding:0 4px}
+#sVol{width:100%;min-height:36px;accent-color:#F0658A}
+#coin{display:flex;align-items:center;gap:5px}#coin .pi{width:20px;height:20px}
+.bal{display:flex;align-items:center;justify-content:center;gap:10px}.bal .pi{width:44px;height:44px;filter:drop-shadow(0 3px 6px rgba(60,42,69,.25))}
+.gift{cursor:pointer}.gift .bob{animation:bob 2.4s ease-in-out infinite}.gift .shine{animation:twinkle 1.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-5px) rotate(-4deg)}}
+.gain{position:fixed;z-index:25;pointer-events:none;display:flex;align-items:center;gap:6px;font-size:28px;font-weight:800;color:#7A4E96;text-shadow:0 0 6px #fff,0 0 3px #fff}
+.gain .pi{width:30px;height:30px}
 nav{grid-template-columns:repeat(5,minmax(0,1fr));gap:0;padding-left:4px;padding-right:4px}
 nav button{font-size:12px!important;padding-left:0;padding-right:0;white-space:nowrap}
 #auth{position:fixed;inset:0;z-index:30;background:linear-gradient(var(--bg),var(--sea));overflow:auto;padding:calc(32px + env(safe-area-inset-top,0px)) 16px 32px}
@@ -191,13 +203,14 @@ nav button{font-size:12px!important;padding-left:0;padding-right:0;white-space:n
 input[type=password]{width:100%;min-height:50px;border:2px solid var(--line);border-radius:18px;background:var(--card);padding:10px;text-align:center;font-size:24px;letter-spacing:.5em}
 .top{gap:8px}
 #coin{font-size:14px;background:var(--soft);color:var(--softfg);border-color:var(--soft)}
-.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-.seg button{padding:6px 2px;font-size:14px}
+.seg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.seg button{padding:6px 0;font-size:13px;white-space:nowrap}
+#p-acc h2{margin:6px 0 0}.skin button .pi{margin-left:2px}
 .panel{display:flex;flex-direction:column;gap:14px}
-.task{display:flex;gap:10px;align-items:center}.task div{flex:1;min-width:0}.task b{display:block;line-height:1.3}
+.task{display:flex;gap:10px;align-items:center}.card.task{flex-direction:row}.task button{flex:none}.task div{flex:1;min-width:0}.task b{display:block;line-height:1.3}
 .skins{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .skin{padding:8px;gap:4px;text-align:center;border-radius:22px}
-.skin svg{width:100%;height:auto}.skin b{line-height:1.25;font-size:14px}.skin small{color:var(--muted)}
+.skin>svg{width:100%;height:auto}.skin button{display:flex;align-items:center;justify-content:center;gap:4px;font-size:14px}.skin button .pi{width:18px;height:18px}.task small .pi,.gain .pi{vertical-align:-.2em}.skin b{line-height:1.25;font-size:14px}.skin small{color:var(--muted)}
 #board{position:relative}
 #board.catch{height:320px;overflow:hidden;border-radius:18px;background:linear-gradient(#A9E4EA,#5FA9CF);touch-action:manipulation}
 #board.catch button{position:absolute;width:58px;height:58px;min-height:0;padding:0;border:0;background:transparent;box-shadow:none;animation:sink 2.8s linear forwards;transition:none}
@@ -215,10 +228,16 @@ body{margin:0;min-height:100vh}
 .wrap{padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 #auth input[type=email],#auth input[type=password]{width:100%;min-height:50px;border:2px solid var(--line);border-radius:18px;background:var(--card);padding:10px 14px;text-align:left;font-size:16px;letter-spacing:normal}
 #authMsg{overflow-wrap:anywhere;user-select:text}
+#updateBox{position:fixed;z-index:40;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom,0px));max-width:420px;margin:0 auto;background:var(--card);border:3px solid var(--accent);border-radius:24px;padding:12px 16px;box-shadow:0 8px 24px rgba(20,40,70,.35);display:flex;flex-direction:column;gap:8px}
+#updateBox ul{margin:0;padding-left:20px;font-size:14px;color:var(--muted)}#updateBox ul:empty{display:none}
+#updateBox div{display:flex;gap:8px;justify-content:flex-end}
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<radialGradient id="pg" cx=".36" cy=".3" r=".75"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".42" stop-color="#FFF1F6"/><stop offset=".72" stop-color="#E9D3F2"/><stop offset="1" stop-color="#9FC9E8"/></radialGradient>
+</defs><symbol id="pearlSym" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5" fill="url(#pg)" stroke="#8C77A8" stroke-width="1.4"/><path d="M5.6 15.5Q10 21 17 17.5" fill="none" stroke="#FFC9DD" stroke-width="2" stroke-linecap="round" opacity=".9"/><ellipse cx="8.4" cy="7.8" rx="3.4" ry="2.4" transform="rotate(-35 8.4 7.8)" fill="#fff"/><circle cx="14.6" cy="6.4" r="1" fill="#fff"/></symbol></svg>
 <div class="scene" aria-hidden="true">
 <div id="decor"></div>
 <i style="--x:8%;--s:14px;--t:13s;--d:0s"></i><i style="--x:22%;--s:8px;--t:17s;--d:-6s"></i><i style="--x:47%;--s:20px;--t:19s;--d:-11s"></i><i style="--x:68%;--s:10px;--t:14s;--d:-3s"></i><i style="--x:84%;--s:16px;--t:16s;--d:-9s"></i><i style="--x:93%;--s:7px;--t:12s;--d:-1s"></i>
@@ -239,11 +258,15 @@ body{margin:0;min-height:100vh}
 </div></div>
 
 <div class="wrap">
-<div class="top"><button type="button" id="coin" aria-label="Điểm của bạn, mở cửa hàng"></button><button type="button" id="gear" aria-expanded="false" aria-controls="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.500"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.900 4.900L7 7M17 17l2.100 2.100M19.100 4.900L17 7M7 17l-2.100 2.100"/></svg><span id="gearName">Quang</span></button></div>
+<div class="top"><button type="button" id="coin"><svg class="pi" aria-hidden="true"><use href="#pearlSym"/></svg><span id="coinNum">0</span></button><button type="button" id="sndBtn" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sndOn" d="M16.5 9q2 3 0 6M19 6.500q4 5.5 0 11"/><path id="sndOff" d="M17 9.500l5 5M22 9.500l-5 5"/></svg></button><button type="button" id="gear" aria-expanded="false" aria-controls="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.500"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.900 4.900L7 7M17 17l2.100 2.100M19.100 4.900L17 7M7 17l-2.100 2.100"/></svg><span id="gearName">Quang</span></button></div>
 
 <div id="settings" class="card" hidden>
 <div class="who"><span id="signedAs"></span><button type="button" id="logout">Đăng xuất</button></div>
 <p class="muted">Yêu nhau từ ngày 12/06/2026</p>
+<fieldset class="snd"><legend>Âm thanh biển</legend>
+<label class="check"><input type="checkbox" id="sWaves">Tiếng sóng nền</label>
+<label class="check"><input type="checkbox" id="sFx">Tiếng khi chạm và nhận quà</label>
+<label for="sVol">Âm lượng</label><input type="range" id="sVol" min="0" max="100" step="5"></fieldset>
 <form id="fNames">
 <label for="nameQ">Tên người thứ nhất</label><input type="text" id="nameQ" maxlength="20" required>
 <label for="nameT">Tên người thứ hai</label><input type="text" id="nameT" maxlength="20" required>
@@ -300,16 +323,17 @@ body{margin:0;min-height:100vh}
 </section>
 <section id="shop" hidden>
 <h1>Cửa hàng</h1>
-<div class="hero"><div class="big" id="balance">0</div><div>điểm của bạn</div></div>
-<div class="seg" role="group" aria-label="Mục trong cửa hàng"><button type="button" data-seg="tasks" aria-pressed="true">Nhiệm vụ</button><button type="button" data-seg="games" aria-pressed="false">Trò chơi</button><button type="button" data-seg="skins" aria-pressed="false">Trang phục</button></div>
+<div class="hero"><div class="bal"><svg class="pi" aria-hidden="true"><use href="#pearlSym"/></svg><span class="big" id="balance">0</span></div><div>ngọc trai của bạn</div></div>
+<div class="seg" role="group" aria-label="Mục trong cửa hàng"><button type="button" data-seg="tasks" aria-pressed="true">Nhiệm vụ</button><button type="button" data-seg="games" aria-pressed="false">Trò chơi</button><button type="button" data-seg="skins" aria-pressed="false">Trang phục</button><button type="button" data-seg="acc" aria-pressed="false">Phụ kiện</button></div>
 <div id="p-tasks" class="panel"></div>
 <div id="p-games" class="panel" hidden>
 <p class="muted" id="gameLimit"></p>
 <div class="card"><h2>Bắt ngọc</h2><p class="muted">20 giây. Chạm ngọc trắng +1, ngọc vàng +3. Đừng chạm sứa, bị trừ 2.</p><button type="button" class="primary" id="startCatch">Chơi bắt ngọc</button></div>
-<div class="card"><h2>Lật hình biển</h2><p class="muted">Tìm đủ 6 cặp. Lật càng ít lượt càng nhiều điểm.</p><button type="button" class="primary" id="startMatch">Chơi lật hình</button></div>
+<div class="card"><h2>Lật hình biển</h2><p class="muted">Tìm đủ 6 cặp. Lật càng ít lượt càng nhiều ngọc trai.</p><button type="button" class="primary" id="startMatch">Chơi lật hình</button></div>
 <div class="card" id="stageGame" hidden><div class="row"><b class="grow" id="gameInfo" aria-live="polite"></b><button type="button" id="quitGame">Thoát</button></div><div id="board"></div></div>
 </div>
 <div id="p-skins" class="panel" hidden></div>
+<div id="p-acc" class="panel" hidden></div>
 </section>
 <p id="status" role="status"></p>
 </div>
@@ -350,7 +374,10 @@ const data={}; COLS.forEach(c=>data[c]={});
 let db=null, ready=false;
 const say=t=>$('status').textContent=t;
 
+const CHIME=['answers','memories','wishes','letters'];
 async function save(col,id,value){
+  const ok=await store(col,id,value);if(ok&&value!==null&&CHIME.includes(col))sfx('save');return ok}
+async function store(col,id,value){
   if(!ready){say('Đang mở dữ liệu, bạn thử lại sau giây lát.');return false}
   try{
     const ref=db.collection(col).doc(id); value===null?await ref.delete():await ref.set(value);
@@ -528,7 +555,7 @@ $('evDo').onclick=async()=>{
     const ok=await save('care',me,{date:today(),done:[...done,e.id]});$('evDo').disabled=false;
     if(!ok)return;
   }else if(!e.repeat)return;
-  preview=null;hearts($('evDo'));
+  preview=null;sfx(e.id==='parade'?'cheer':'bubble');hearts($('evDo'));
   const happy=e.id==='parade'?'cheer':e.face==='sleep'?'shy':'dance';act('quang',happy,3500);act('tom',happy,3500);
   if(e.id==='parade'){hearts($('pearls'));render()}
   bubble(e.reply)};
@@ -538,12 +565,15 @@ function skyArt(sky){
   const y=sky==='day'?22:38;
   return '<circle cx="32" cy="'+y+'" r="15" fill="'+(sky==='dusk'?'#FF8A5B':'#FFD45E')+'"/><path d="M262 32q0-12 14-11q6-12 20-5q18-3 16 16z" fill="#fff" opacity=".85"/>';
 }
-function shellPearl(girl,mood,st,prop,skin){
+function shellPearl(girl,mood,st,prop,skin,acc){
+  const dressed=hasSkin(skin), topped=!!(acc&&acc.head);
   const [light,dark]=girl?['#FFB8CE','#FF93B5']:['#A9D8F5','#7DBDEB'];
   return '<path d="M-53 6C-71-14-59-40-39-34C-37-56-9-62 0-44C9-62 37-56 39-34C59-40 71-14 53 6Z" fill="'+light+'" stroke="'+INK+'" stroke-width="2.5" stroke-linejoin="round"/>'
     +'<circle class="ring" r="31" cy="2" fill="'+(girl?'#FFF7F4':'#F4FAFF')+'" stroke="'+INK+'" stroke-width="2.5"/><circle cx="-13" cy="-15" r="6" fill="#fff"/>'
-    +face(mood,girl)+(skin?'':outfit(girl,st))
-    +'<path d="M-57 12Q-35 30 0 29Q35 30 57 12Q49 46 0 46Q-49 46-57 12Z" fill="'+dark+'" stroke="'+INK+'" stroke-width="2.5" stroke-linejoin="round"/>'+(skin?skinArt(skin,girl):'')+(prop==='stick'?lightstick(girl):PROPS[prop]||'');
+    +face(mood,girl)+(dressed||topped?'':outfit(girl,st))
+    +'<path d="M-57 12Q-35 30 0 29Q35 30 57 12Q49 46 0 46Q-49 46-57 12Z" fill="'+dark+'" stroke="'+INK+'" stroke-width="2.5" stroke-linejoin="round"/>'+(dressed?SKINS[skin].body(girl):'')+accArt(acc,'neck')
+    +(dressed&&!topped?SKINS[skin].hat(girl):'')+accArt(acc,'face')+accArt(acc,'head')
+    +(prop==='stick'?lightstick(girl):(PROPS[prop]||'')+accArt(acc,'hand'));
 }
 const moodOf=k=>{const m=data.mood[k];return m&&m.date===today()?m.mood:''};
 const SAY={'':'Chạm cảm xúc để mình biết bạn thế nào nha~','Vui':'Hôm nay vui quá đi~','Ổn':'Mình ổn nè.','Mệt':'Mệt xíu, cho mình dựa nha...','Nhớ':'Nhớ người ta quá à...','Giận':'Hứ! Dỗ mình đi!','Yêu':'Thương nhiều lắm luôn!'};
@@ -551,14 +581,14 @@ const POKE=['Hihi, nhột quá!','Gọi mình hả?','Ôm cái nào!','Đừng c
 function drawPearls(){
   const d=daysIn(), st=preview===null?stageAt(d):preview, S=STAGES[st], met=st>=5, parade=eventNow().id==='parade', k=S.size*(parade?(S.size>.8?.72:.84):1);
   const ev=eventNow();
-  const key=[st,preview,ev.id,temp.quang,temp.tom,moodOf('quang'),moodOf('tom'),fullName('quang'),fullName('tom'),wallet('quang').skin,wallet('tom').skin].join('|');
+  const key=[st,preview,ev.id,temp.quang,temp.tom,moodOf('quang'),moodOf('tom'),fullName('quang'),fullName('tom'),wallet('quang').skin,wallet('tom').skin,Object.values(wallet('quang').acc),Object.values(wallet('tom').acc)].join('|');
   if(key===pearlKey)return; pearlKey=key;
   const focused=document.activeElement&&document.activeElement.getAttribute('data-pal');
   // Ưu tiên: hành động tạm > đang ngủ > cảm xúc đã chọn > việc theo giờ
   const one=(who,girl,x)=>{const m=moodOf(who), live=preview===null;
     const f=temp[who]||(live?(ev.face==='sleep'||parade?ev.face:m||ev.face):m);
     const prop=live&&(parade||!temp[who])?ev.prop:'';
-    return '<g transform="translate('+x+' '+(155-46*k)+') scale('+k+')"><g class="float"><g class="pal '+(girl?'r':'l')+' m-'+(f||'none')+'" data-pal="'+who+'" role="button" tabindex="0"><g class="act">'+shellPearl(girl,f,st,prop,wallet(who).skin)+'</g></g></g></g><text x="'+x+'" y="177" data-name="'+who+'"></text>'};
+    return '<g transform="translate('+x+' '+(155-46*k)+') scale('+k+')"><g class="float"><g class="pal '+(girl?'r':'l')+' m-'+(f||'none')+'" data-pal="'+who+'" role="button" tabindex="0"><g class="act">'+shellPearl(girl,f,st,prop,wallet(who).skin,wallet(who).acc)+'</g></g></g></g><text x="'+x+'" y="177" data-name="'+who+'"></text>'};
   const baby=(x,girl)=>'<g transform="translate('+x+' 133) scale(.38)"><g class="float">'+shellPearl(girl,'Vui',1)+'</g></g>';
   let extra='';
   if(st===5||st===6) extra='<g class="heartbeat">'+heartShape(170,st===6?42:66,2)+'</g>';
@@ -571,7 +601,9 @@ function drawPearls(){
     const who=g.dataset.pal;
     g.setAttribute('aria-label','Bé Ngọc Trai của '+fullName(who)+(moodOf(who)?', đang '+moodOf(who):''));
     const poke=()=>{poked[who]=((poked[who]??-1)+1)%POKES.length;const [move,line]=POKES[poked[who]];
-      const g2=data.ping[who];bubble(who!==me&&unseen()&&g2?pokeText(who):fullName(who)+': '+line);hearts(g);seePing(who);act(who,move,2600)};
+      if(who!==me&&giftReady())return collectGift(g);
+      const g2=data.ping[who],wait=who!==me?giftWait():0;
+      bubble((who!==me&&unseen()&&g2?pokeText(who):fullName(who)+': '+line)+(wait?' Quà ngọc tiếp theo sau '+Math.ceil(wait/60000)+' phút.':''));sfx('poke');hearts(g);seePing(who);act(who,move,2600)};
     g.onclick=poke;g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();poke()}};
   });
   if(focused){const again=$('pearls').querySelector('[data-pal="'+focused+'"]');if(again)again.focus({preventScroll:true})}
@@ -592,13 +624,15 @@ function pokeText(who){
 }
 function seePing(who){if(who!==me&&unseen()){local.set(seenKey(),String(data.ping[who].at));seenAt[me]=data.ping[who].at;drawDot()}}
 const seenAt={};
+let chimed=0;
 function drawDot(){
   const old=$('pearls').querySelector('.dot');if(old)old.remove();
   const g=data.ping[other()];
   if(preview!==null||!unseen()||seenAt[me]>=g.at)return;
-  const x=$('pearls').querySelector('[data-name="'+other()+'"]').getAttribute('x');
+  const x=Number($('pearls').querySelector('[data-name="'+other()+'"]').getAttribute('x'));
+  if(g.at!==chimed&&Date.now()-g.at<90000){chimed=g.at;sfx('ping')}
   const dot=document.createElementNS('http://www.w3.org/2000/svg','g');dot.setAttribute('class','dot');
-  dot.innerHTML='<g class="heartbeat">'+heartShape(Number(x)+34,58,1.7)+'</g>';
+  dot.innerHTML='<g class="heartbeat">'+heartShape(x+(giftReady()?(x>170?-30:30):34),58,1.7)+'</g>';
   $('pearls').append(dot);
   $('pearls').setAttribute('aria-label','Hai bé Ngọc Trai. '+callName(other())+' vừa nhắn nhớ bạn.');
 }
@@ -632,7 +666,7 @@ function render(){
   $('nickTLabel').textContent='Biệt danh '+($('nameQ').value||fullName('quang'))+' đặt cho '+($('nameT').value||fullName('tom'));
   $('nickQLabel').textContent='Biệt danh '+($('nameT').value||fullName('tom'))+' đặt cho '+($('nameQ').value||fullName('quang'));
   $('days').textContent=num(t)-dayNum(...START);
-  drawDecor();drawEvent();drawPearls();drawGrowth();drawDot();
+  drawDecor();drawEvent();drawPearls();drawGrowth();drawGift();drawDot();
   const n=nextMilestone(t);
   $('nextName').textContent=n.name.replace('Kỷ niệm ','Kỷ niệm tròn ')+(n.left?': còn '+n.left+' ngày':' là hôm nay!');
   const mine=data.mood[me];
@@ -670,7 +704,7 @@ const line=d=>'<path d="'+d+'" fill="none" stroke="#3C2A45" stroke-width="2.5" s
 const FACES={'Vui':['#FFE08A',line('M9 18q3-5 6 0M21 18q3-5 6 0M13 23q5 6 10 0')],'Ổn':['#BDEBC8',eye+line('M14 24q4 3 8 0')],'Mệt':['#CBD4F5',line('M9 17h6M21 17h6M15 26q3-3 6 0')],'Nhớ':['#FFC2D4',eye+line('M15 25q3-3 6 0')+'<path d="M28 21q5 7 0 8q-5-1 0-8z" fill="#5BBDE8"/>'],'Giận':['#FFAD9E',line('M8 12l7 4M28 12l-7 4M13 27q5-6 10 0')+'<circle cx="12" cy="19" r="2.2" fill="#3C2A45"/><circle cx="24" cy="19" r="2.2" fill="#3C2A45"/>'],'Yêu':['#FFD3E8','<path d="M11 21c-8-5-4-11 0-7 4-4 8 2 0 7zM25 21c-8-5-4-11 0-7 4-4 8 2 0 7z" fill="#E4457B"/>'+line('M13 25q5 6 10 0')]};
 // Bấm cảm xúc thì bé của mình phản ứng ngay
 const showMine=()=>{preview=null;act(me,moodOf(me),6000);bubble(fullName(me)+': '+SAY[moodOf(me)])};
-Object.entries(FACES).forEach(([m,[color,face]])=>{const b=el('button');b.type='button';b.innerHTML='<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="'+color+'"/>'+face+'</svg>';b.append(m);b.onclick=async()=>{if(await save('mood',me,{mood:m,date:today()})){showMine();$('pearls').scrollIntoView({block:'nearest',behavior:calm.matches?'auto':'smooth'})}};$('moods').append(b)});
+Object.entries(FACES).forEach(([m,[color,face]])=>{const b=el('button');b.type='button';b.innerHTML='<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="'+color+'"/>'+face+'</svg>';b.append(m);b.onclick=async()=>{if(await save('mood',me,{mood:m,date:today()})){sfx('mood',m);showMine();$('pearls').scrollIntoView({block:'nearest',behavior:calm.matches?'auto':'smooth'})}};$('moods').append(b)});
 const calm=matchMedia('(prefers-reduced-motion: reduce)');
 function hearts(from){
   if(calm.matches||!document.body.animate)return;
@@ -687,7 +721,7 @@ function hearts(from){
 document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('[data-tab]').forEach(x=>x.setAttribute('aria-pressed',x===b));
   document.querySelectorAll('section').forEach(s=>s.hidden=s.id!==b.dataset.tab);say('');showSettings(false);stopGame();scrollTo(0,0);render()});
-$('miss').onclick=async()=>{if(await save('ping',me,{at:Date.now()})){hearts($('miss'));say('Đã lưu lời nhắn nhớ.')}};
+$('miss').onclick=async()=>{if(await save('ping',me,{at:Date.now()})){sfx('miss');hearts($('miss'));say('Đã lưu lời nhắn nhớ.')}};
 $('spin').onclick=()=>{let f;do{f=FOODS[Math.floor(Math.random()*FOODS.length)]}while(f===$('food').textContent);const x=$('food');x.textContent=f;x.classList.remove('spin');void x.offsetWidth;x.classList.add('spin')};
 const newId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 $('fAns').onsubmit=async e=>{e.preventDefault();const text=$('ans').value.trim();if(text&&await save('answers',today()+'_'+me,{text}))say('Đã lưu câu trả lời.')};
@@ -741,7 +775,7 @@ function watch(c){
     e=>say(e&&e.code==='permission-denied'?'Không có quyền đọc dữ liệu. Kiểm tra lại firestore.rules.':'Mất kết nối dữ liệu. Hãy tải lại trang.'));
 }
 function stopWatching(){stops.forEach(f=>f());stops=[];if(stopMem)stopMem();stopMem=null;COLS.forEach(c=>{data[c]={};delete loaded[c]});db=null;ready=false;memLimit=40}
-function resetView(){lastAnsKey='';$('ans').value='';preview=null;previewEv=null;paying=false;hideBubble();stopGame();showSettings(false);say('')}
+function resetView(){lastAnsKey='';$('ans').value='';preview=null;previewEv=null;paying=false;chimed=0;clearTimeout(giftTimer);hideBubble();stopGame();showSettings(false);say('')}
 $('moreMem').onclick=()=>{memLimit+=40;if(stopMem)stopMem();stopMem=watch('memories')};
 
 window.HD={
@@ -766,38 +800,159 @@ const bootTimer=setTimeout(()=>{if(!cloudAuth)$('authHint').textContent='Chưa t
 
 // ===== Trang phục nhiều nền văn hóa =====
 const shape=(d,fill)=>'<path d="'+d+'" fill="'+fill+OUT+'/>';
+const dot=(x,y,r,c)=>'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+c+'"/>';
+const bead=(x,y,r,c)=>'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+c+'" stroke="'+INK+'" stroke-width="1.2"/>';
 const DRESS='M-30 24Q0 40 30 24L42 52Q0 62-42 52Z';
 const blossom=(x,y,c)=>'<g transform="translate('+x+' '+y+')" fill="'+c+'"><circle cy="-5" r="4"/><circle cx="5" cy="-1" r="4"/><circle cx="3" cy="5" r="4"/><circle cx="-3" cy="5" r="4"/><circle cx="-5" cy="-1" r="4"/><circle r="3" fill="#FFD45E"/></g>';
 const garland=(cols)=>Array.from({length:9},(_,i)=>{const x=-28+i*7;return blossom(x,Math.round(40-x*x/55),cols[i%cols.length])}).join('');
+const star=(x,y,r,c)=>'<path d="M'+Array.from({length:10},(_,i)=>{const a=Math.PI*i/5-Math.PI/2,k=i%2?r*.45:r;return (x+Math.cos(a)*k).toFixed(1)+' '+(y+Math.sin(a)*k).toFixed(1)}).join('L')+'Z" fill="'+c+'"/>';
+const scallop=(x,y,k,c)=>'<g transform="translate('+x+' '+y+') scale('+k+')"><path d="M0 7L-9 0Q-10-8-4-7Q-3-11 0-9Q3-11 4-7Q10-8 9 0Z" fill="'+c+'" stroke="'+INK+'" stroke-width="1.6" stroke-linejoin="round"/>'+stroke('M0 6L-5-4M0 6V-6M0 6L5-4',1,INK)+'</g>';
+const hem=c=>stroke('M-39 49Q0 60 39 49',4,c);
+// body: phần thân; hat: phần đội đầu (tự ẩn khi bé đội phụ kiện khác)
 const SKINS={
-  vn:{name:'Áo dài',land:'Việt Nam',price:60,draw:g=>shape(DRESS,g?'#E8455F':'#2F5FA8')+stroke('M0 33L14 39V56',2,'#FFE08A')+blossom(-17,45,'#FFE08A')
-    +(g?shape('M-46-30L0-60L46-30Q0-20-46-30Z','#F3DC9E')+stroke('M-23-42Q0-36 23-42',1.5,'#B99550'):shape('M-28-24Q-30-44 0-45Q30-44 28-24Q0-36-28-24Z','#1F3F78')+stroke('M-24-32Q0-43 24-32',2,'#6E8FD0'))},
-  hawaii:{name:'Áo hoa và vòng lei',land:'Hawaii',price:80,draw:g=>shape(DRESS,g?'#7BD3C6':'#F28C54')+blossom(-24,50,'#fff')+blossom(22,48,'#fff')+garland(['#FF7AA2','#fff','#B88BF0'])+blossom(g?22:-22,-27,'#FF5C7A')},
-  mexico:{name:'Lễ hội rực rỡ',land:'Mexico',price:100,draw:g=>shape(DRESS,g?'#F25C8A':'#E86A33')+stroke('M-34 40Q0 52 34 40',5,'#2FB6A8')+stroke('M-38 47Q0 59 38 47',4,'#FFD45E')
-    +(g?blossom(-22,-26,'#F25C8A')+blossom(-8,-33,'#FF9F43')+blossom(8,-33,'#8E6BE0')+blossom(22,-26,'#E8455F'):'<ellipse cx="0" cy="-27" rx="47" ry="10" fill="#E8B04B'+OUT+'/>'+shape('M-18-29Q-14-58 0-58Q14-58 18-29Z','#F2C66B')+stroke('M-17-34H17',4,'#E8455F'))},
-  scotland:{name:'Vải kẻ tartan',land:'Scotland',price:100,draw:g=>shape(DRESS,g?'#9C2F4B':'#2E6B4F')+stroke('M-18 32L-24 55M0 34V57M18 32L24 55M-36 44Q0 55 36 44',2.5,'#F2D16B')+stroke('M-9 33L-12 56M9 33L12 56',1.5,'#fff')
-    +shape('M-27-25Q-30-48 4-46Q34-43 27-26Q0-35-27-25Z',g?'#9C2F4B':'#2E6B4F')+'<circle cx="2" cy="-47" r="6" fill="#E8455F'+OUT+'/>'},
-  japan:{name:'Yukata',land:'Nhật Bản',price:120,draw:g=>shape(DRESS,g?'#FFC4D8':'#3C4F86')+stroke('M-18 29L8 47M18 29L2 40',3,'#fff')+'<path d="M-36 43Q0 54 36 43L39 49Q0 60-39 49Z" fill="'+(g?'#8E5BB8':'#C9CDE0')+OUT+'/>'+blossom(-25,35,g?'#fff':'#9FB4F0')+(g?blossom(21,-28,'#FF7AA2')+stroke('M28-25v14',2,'#E0457B'):stroke('M-26-24Q0-35 26-24',6,'#C9CDE0'))},
-  korea:{name:'Hanbok',land:'Hàn Quốc',price:120,draw:g=>shape(DRESS,g?'#F0658A':'#5B7FC7')+shape('M-29 24Q0 38 29 24L33 38Q0 50-33 38Z',g?'#FFF0B8':'#EAF3FF')+stroke('M0 33L-6 43M0 33L4 56M0 33L11 52',4,g?'#7B4FA8':'#2C437A')
-    +(g?stroke('M-25-23Q0-41 25-23',5,'#E8455F')+blossom(0,-34,'#7BD3C6'):shape('M-20-28V-48H20V-28Z','#2E2E48')+'<ellipse cx="0" cy="-28" rx="40" ry="6" fill="#2E2E48'+OUT+'/>')},
-  china:{name:'Hán phục',land:'Trung Quốc',price:120,draw:g=>shape(DRESS,g?'#BDE3D8':'#F4F0E6')+stroke('M-20 28L10 52M20 28L4 40',5,g?'#E8607A':'#2F6F73')+'<path d="M-35 43Q0 55 35 43L37 48Q0 61-37 48Z" fill="'+(g?'#E8607A':'#2F6F73')+OUT+'/>'
-    +(g?'<g fill="#3C2A45"><circle cx="-18" cy="-30" r="9"/><circle cx="18" cy="-30" r="9"/></g>'+blossom(-24,-31,'#FF9DB6')+stroke('M18-34l20-12',2.5,'#F2B632'):'<circle cx="0" cy="-37" r="9" fill="#3C2A45"/>'+shape('M-12-36H12L9-28H-9Z','#F2B632')+stroke('M-18-37H18',2.5,'#F2B632'))},
-  india:{name:'Lễ phục rực sắc',land:'Ấn Độ',price:150,draw:g=>shape(DRESS,g?'#C8356E':'#F6E7C1')+stroke('M-39 49Q0 60 39 49',5,'#F2B632')+(g?shape('M-29 24L-6 33L24 56L4 57Z','#F59A3C'):stroke('M0 33V56',2.5,'#C98A2B')+'<g fill="#C98A2B"><circle cy="39" r="2"/><circle cy="46" r="2"/><circle cy="53" r="2"/></g>')
-    +garland(['#FF9F2E','#FFC93C'])+(g?stroke('M-26-18Q0-34 26-18M0-30v10',2,'#F2B632')+'<circle cx="0" cy="-17" r="3.500" fill="#E8455F"/>':'')}
+  vn:{name:'Áo dài',land:'Việt Nam',price:60,
+    body:g=>shape(DRESS,g?'#E8455F':'#2F5FA8')+stroke('M0 33L14 39V56',2,'#FFE08A')+blossom(-17,45,'#FFE08A'),
+    hat:g=>g?shape('M-46-30L0-60L46-30Q0-20-46-30Z','#F3DC9E')+stroke('M-23-42Q0-36 23-42',1.5,'#B99550'):shape('M-28-24Q-30-44 0-45Q30-44 28-24Q0-36-28-24Z','#1F3F78')+stroke('M-24-32Q0-43 24-32',2,'#6E8FD0')},
+  hawaii:{name:'Áo hoa và vòng lei',land:'Hawaii',price:80,
+    body:g=>shape(DRESS,g?'#7BD3C6':'#F28C54')+blossom(-24,50,'#fff')+blossom(22,48,'#fff')+garland(['#FF7AA2','#fff','#B88BF0']),
+    hat:g=>blossom(g?22:-22,-27,'#FF5C7A')},
+  mexico:{name:'Lễ hội rực rỡ',land:'Mexico',price:100,
+    body:g=>shape(DRESS,g?'#F25C8A':'#E86A33')+stroke('M-34 40Q0 52 34 40',5,'#2FB6A8')+stroke('M-38 47Q0 59 38 47',4,'#FFD45E'),
+    hat:g=>g?blossom(-22,-26,'#F25C8A')+blossom(-8,-33,'#FF9F43')+blossom(8,-33,'#8E6BE0')+blossom(22,-26,'#E8455F'):'<ellipse cx="0" cy="-27" rx="47" ry="10" fill="#E8B04B'+OUT+'/>'+shape('M-18-29Q-14-58 0-58Q14-58 18-29Z','#F2C66B')+stroke('M-17-34H17',4,'#E8455F')},
+  scotland:{name:'Vải kẻ tartan',land:'Scotland',price:100,
+    body:g=>shape(DRESS,g?'#9C2F4B':'#2E6B4F')+stroke('M-18 32L-24 55M0 34V57M18 32L24 55M-36 44Q0 55 36 44',2.5,'#F2D16B')+stroke('M-9 33L-12 56M9 33L12 56',1.5,'#fff'),
+    hat:g=>shape('M-27-25Q-30-48 4-46Q34-43 27-26Q0-35-27-25Z',g?'#9C2F4B':'#2E6B4F')+'<circle cx="2" cy="-47" r="6" fill="#E8455F'+OUT+'/>'},
+  japan:{name:'Yukata',land:'Nhật Bản',price:120,
+    body:g=>shape(DRESS,g?'#FFC4D8':'#3C4F86')+stroke('M-18 29L8 47M18 29L2 40',3,'#fff')+'<path d="M-36 43Q0 54 36 43L39 49Q0 60-39 49Z" fill="'+(g?'#8E5BB8':'#C9CDE0')+OUT+'/>'+blossom(-25,35,g?'#fff':'#9FB4F0'),
+    hat:g=>g?blossom(21,-28,'#FF7AA2')+stroke('M28-25v14',2,'#E0457B'):stroke('M-26-24Q0-35 26-24',6,'#C9CDE0')},
+  korea:{name:'Hanbok',land:'Hàn Quốc',price:120,
+    body:g=>shape(DRESS,g?'#F0658A':'#5B7FC7')+shape('M-29 24Q0 38 29 24L33 38Q0 50-33 38Z',g?'#FFF0B8':'#EAF3FF')+stroke('M0 33L-6 43M0 33L4 56M0 33L11 52',4,g?'#7B4FA8':'#2C437A'),
+    hat:g=>g?stroke('M-25-23Q0-41 25-23',5,'#E8455F')+blossom(0,-34,'#7BD3C6'):shape('M-20-28V-48H20V-28Z','#2E2E48')+'<ellipse cx="0" cy="-28" rx="40" ry="6" fill="#2E2E48'+OUT+'/>'},
+  china:{name:'Hán phục',land:'Trung Quốc',price:120,
+    body:g=>shape(DRESS,g?'#BDE3D8':'#F4F0E6')+stroke('M-20 28L10 52M20 28L4 40',5,g?'#E8607A':'#2F6F73')+'<path d="M-35 43Q0 55 35 43L37 48Q0 61-37 48Z" fill="'+(g?'#E8607A':'#2F6F73')+OUT+'/>',
+    hat:g=>g?'<g fill="#3C2A45"><circle cx="-18" cy="-30" r="9"/><circle cx="18" cy="-30" r="9"/></g>'+blossom(-24,-31,'#FF9DB6')+stroke('M18-34l20-12',2.5,'#F2B632'):'<circle cx="0" cy="-37" r="9" fill="#3C2A45"/>'+shape('M-12-36H12L9-28H-9Z','#F2B632')+stroke('M-18-37H18',2.5,'#F2B632')},
+  india:{name:'Lễ phục rực sắc',land:'Ấn Độ',price:150,
+    body:g=>shape(DRESS,g?'#C8356E':'#F6E7C1')+hem('#F2B632')+(g?shape('M-29 24L-6 33L24 56L4 57Z','#F59A3C'):stroke('M0 33V56',2.5,'#C98A2B')+dot(0,39,2,'#C98A2B')+dot(0,46,2,'#C98A2B')+dot(0,53,2,'#C98A2B'))+garland(['#FF9F2E','#FFC93C']),
+    hat:g=>g?stroke('M-26-18Q0-34 26-18M0-30v10',2,'#F2B632')+'<circle cx="0" cy="-17" r="3.5" fill="#E8455F"/>':''},
+  nhatbinh:{name:'Nhật bình và áo tấc',land:'Việt Nam',price:180,
+    body:g=>shape(DRESS,g?'#E2573F':'#274C9B')+stroke('M-36 47Q0 58 36 47',3,'#3FAE8C')+hem('#FFD45E')+stroke('M-41 53Q0 63 41 53',2.5,'#7B4FA8')
+      +(g?shape('M-12 31H12V49H-12Z','#F6C445')+stroke('M-7 32V48M7 32V48',1.5,'#B4472F')+blossom(0,40,'#fff')+[-26,26].map(x=>bead(x,43,5.5,'#F6C445')+dot(x,43,2.2,'#3FAE8C')).join('')
+        :stroke('M-8 31Q0 38 8 31M0 36L13 42V56',2,'#FFE08A')+[[-24,43],[-8,49],[25,45]].map(([x,y])=>stroke('M'+(x-5)+' '+y+'a5 5 0 1 0 10 0a5 5 0 1 0-10 0M'+(x-2)+' '+y+'h4M'+x+' '+(y-2)+'v4',1.3,'#FFE08A')).join('')),
+    hat:g=>g?shape('M-34-20Q-40-52 0-52Q40-52 34-20Q22-40 0-40Q-22-40-34-20Z','#F2B632')+stroke('M-31-30Q-20-46 0-46Q20-46 31-30',3,'#2F6FB5')+stroke('M-29-26Q-18-42 0-42Q18-42 29-26',1.5,'#E2573F')
+      :shape('M-27-24Q-30-44 0-46Q30-44 27-24Q0-36-27-24Z','#17315F')+stroke('M-24-31Q0-42 24-31M-21-38Q0-48 21-38',1.6,'#5E7FC4')+bead(0,-37,3,'#F2B632')},
+  thai:{name:'Lễ phục dệt vàng',land:'Thái Lan',price:140,
+    body:g=>shape(DRESS,g?'#7B3FA0':'#F8F1DE')+stroke('M-37 46Q0 57 37 46',6,'#F2B632')+stroke('M-37 46Q0 57 37 46',1.5,g?'#7B3FA0':'#B4472F')
+      +(g?shape('M-30 25L-17 30L26 51L12 56Z','#F6C445')+stroke('M-22 29L18 52',1.2,'#9A6A12')+stroke('M-18 31Q0 40 18 31',3,'#F2B632')+bead(0,38,4,'#E2573F')
+        :stroke('M0 33V56',1.8,'#C98A2B')+[39,46,53].map(y=>bead(0,y,2.4,'#F2B632')).join('')+shape('M-34 43Q0 54 34 43L36 49Q0 60-36 49Z','#B4472F')),
+    hat:g=>g?shape('M-14-31L-9-40L-6-39L-4-50L-1.5-49L0-64L1.5-49L4-50L6-39L9-40L14-31Q0-37-14-31Z','#F2B632')+bead(0,-37,2.6,'#E2573F')+bead(-22,-24,3,'#F2B632')+bead(22,-24,3,'#F2B632'):stroke('M-25-24Q0-37 25-24',4,'#F2B632')+bead(0,-31,3,'#E2573F')},
+  indonesia:{name:'Kebaya và batik',land:'Indonesia',price:130,
+    body:g=>{const batik=[-28,-14,0,14,28].map((x,i)=>{const y=i%2?47:51;return '<path d="M'+x+' '+(y-5)+'l5 5-5 5-5-5z" fill="none" stroke="#F4D7A1" stroke-width="1.4"/>'+dot(x,y,1.4,'#F4D7A1')}).join('');
+      return shape(DRESS,'#7A4A2B')+batik+(g?shape('M-30 24Q0 40 30 24L35 42Q18 38 4 47L0 40L-4 47Q-18 38-35 42Z','#FFC9A8')+stroke('M-34 41Q-18 37-5 45M34 41Q18 37 5 45',1.6,'#fff')+bead(0,43,2.6,'#F2B632')+bead(0,36,2.2,'#F2B632')
+        :stroke('M-9 31L0 40L9 31',3,'#F4D7A1')+stroke('M0 40V56',1.6,'#F4D7A1')+stroke('M-30 36q8-7 15 0t15 0M0 36q8-7 15 0t15 0',1.4,'#D99A55'))},
+    hat:g=>g?'<g>'+blossom(20,-29,'#fff')+blossom(29,-18,'#fff')+blossom(9,-35,'#FFF3C4')+'</g>':shape('M-28-23Q-30-45 2-46Q32-44 28-23Q12-34 0-27Q-12-34-28-23Z','#5A3320')+stroke('M-22-34Q-2-44 22-33',1.4,'#D99A55')+shape('M20-35L38-44L34-28Z','#5A3320')},
+  france:{name:'Họa sĩ nhí',land:'Pháp',price:90,
+    body:g=>shape(DRESS,'#FFFDF7')+stroke('M-33 34Q0 49 33 34M-37 42Q0 56 37 42M-40 49Q0 62 40 49',3.5,'#2C4A82')+shape('M-15 29Q0 36 15 29L5 40L9 50L0 45L-2 39Z',g?'#E8455F':'#C9313F'),
+    hat:g=>shape('M-31-28Q-34-50 2-50Q36-49 33-32Q6-24-31-28Z',g?'#E8455F':'#26324F')+stroke('M2-50q0-6 6-7',2.5)},
+  sailor:{name:'Thủy thủ nhí',land:'Đại dương',price:90,
+    body:g=>shape(DRESS,'#FFFFFF')+shape('M-30 24Q0 40 30 24L25 42L0 47L-25 42Z','#2F5FA8')+stroke('M-22 39L0 43L22 39',1.6,'#fff')+shape('M0 37L-11 33V43Z','#E8455F')+shape('M0 37L11 33V43Z','#E8455F')+bead(0,38,3,'#E8455F')+stroke('M0 47V57M-5 51H5M-7 53q7 8 14 0',1.8,'#2F5FA8')+hem('#2F5FA8'),
+    hat:g=>shape('M-24-27L-20-45Q0-52 20-45L24-27Q0-35-24-27Z','#FFFFFF')+stroke('M-23-31Q0-39 23-31',4,'#2F5FA8')+star(0,-42,4.5,'#F2B632')+(g?stroke('M21-30q10 6 8 18M18-29q4 9 0 16',3,'#2F5FA8'):'')},
+  pajama:{name:'Đồ ngủ sao biển',land:'Ở nhà',price:70,
+    body:g=>shape(DRESS,g?'#CDB8F5':'#A9D3F5')+star(-23,44,6,'#FFE08A')+star(22,46,5,'#FFE08A')+star(-8,52,3.5,'#fff')+star(12,38,3,'#fff')+[39,46,53].map(y=>bead(0,y,2.2,'#fff')).join('')+stroke('M-14 30L0 36L14 30',3,'#fff'),
+    hat:g=>shape('M-26-24Q-18-52 6-50Q34-46 42-14Q30-30 22-28Q0-38-26-24Z',g?'#CDB8F5':'#7FB2E8')+stroke('M-26-25Q-2-39 22-28',5,'#fff')+bead(42,-13,6,'#fff')},
+  mermaid:{name:'Công chúa và hoàng tử biển',land:'Đại dương',price:240,
+    body:g=>{const c=g?'#8F7BE0':'#1F8FA8',l=g?'#C9B8FA':'#6FD0D8';
+      const scales=[[42,[-28,-17,-6,5,16,27]],[49,[-33,-22,-11,0,11,22,33]]].map(([y,xs])=>xs.map(x=>stroke('M'+(x-5)+' '+y+'q5 7 10 0',1.4,l)).join('')).join('');
+      return shape('M-40 50Q-62 46-60 64Q-48 56-34 56Z',l)+shape('M40 50Q62 46 60 64Q48 56 34 56Z',l)+shape(DRESS,c)+scales+stroke('M-28 27Q0 43 28 27',2,'#fff')+[-24,-16,-8,8,16,24].map(x=>bead(x,Math.round(37-x*x/70),2.6,'#FFF3F8')).join('')+scallop(0,38,1.05,g?'#FF9DB6':'#FFD45E')},
+    hat:g=>shape('M-25-27L-28-45L-16-37L-12-54L-4-40L0-60L4-40L12-54L16-37L28-45L25-27Q0-37-25-27Z',g?'#FF8FA3':'#F2B632')+scallop(0,-37,.9,g?'#FFD9E6':'#BFEFF2')+bead(-28,-45,3,'#fff')+bead(28,-45,3,'#fff')+bead(0,-60,3,'#fff')}
 };
-const hasSkin=id=>Object.prototype.hasOwnProperty.call(SKINS,id);
-const skinArt=(id,girl)=>hasSkin(id)?SKINS[id].draw(girl):'';
+// ===== Phụ kiện: mỗi bé đeo được một món ở mỗi vị trí =====
+const SLOTS={head:'Đội đầu',face:'Đeo mắt',neck:'Đeo cổ',hand:'Cầm tay'};
+const lens=(x,fill,r=10)=>'<circle cx="'+x+'" cy="-2" r="'+r+'" fill="'+fill+'" stroke="#6B4A7E" stroke-width="2.5"/>';
+const ACC={
+  h_starclip:{slot:'head',name:'Kẹp sao biển',price:30,art:'<g transform="translate(22 -26) rotate(15)">'+star(0,0,13,INK)+star(0,0,11,'#FF9F6B')+dot(0,0,1.8,'#fff')+dot(0,-5,1.2,'#fff')+dot(5,2,1.2,'#fff')+dot(-5,2,1.2,'#fff')+'</g>'},
+  h_catears:{slot:'head',name:'Bờm tai mèo',price:45,art:stroke('M-28-20Q0-44 28-20',4,'#4A3A5E')+shape('M-28-27L-27-52L-9-37Z','#4A3A5E')+shape('M28-27L27-52L9-37Z','#4A3A5E')+'<path d="M-24-32L-23-45L-14-37ZM24-32L23-45L14-37Z" fill="#FF9DB6"/>'},
+  h_straw:{slot:'head',name:'Mũ cói nơ biển',price:55,art:'<ellipse cx="0" cy="-28" rx="46" ry="9" fill="#EFD28C'+OUT+'/>'+shape('M-23-29Q-22-52 0-52Q22-52 23-29Q0-23-23-29Z','#F6DFA4')+stroke('M-22-33Q0-27 22-33',6,'#3FA7C4')+shape('M16-31l14-8v16z','#3FA7C4')+shape('M16-31l-2 15 12-5z','#3FA7C4')+stroke('M-14-46Q0-50 14-46M-33-27h8M26-26h9',1.2,'#B99550')},
+  h_flowers:{slot:'head',name:'Vòng hoa',price:70,art:stroke('M-31-17Q-24-40 0-40Q24-40 31-17',3,'#5BAA6E')+[[-30,-19,'#FF9DB6'],[-21,-32,'#fff'],[-8,-39,'#FFB454'],[7,-39,'#B88BF0'],[21,-32,'#fff'],[30,-19,'#FF7AA2']].map(([x,y,c])=>'<ellipse cx="'+(x+4)+'" cy="'+(y+5)+'" rx="5" ry="2.5" fill="#8FD39C"/>'+blossom(x,y,c)).join('')},
+  h_pirate:{slot:'head',name:'Mũ thuyền trưởng',price:90,art:shape('M-40-26Q-34-34-26-34Q-24-56 0-56Q24-56 26-34Q34-34 40-26Q0-40-40-26Z','#2E2E48')+stroke('M-35-29Q0-42 35-29',2.5,'#F2B632')+bead(0,-45,5,'#fff')+stroke('M-8-39L8-47M-8-47L8-39',2,'#fff')+bead(0,-45,5,'#fff')},
+  h_crown:{slot:'head',name:'Vương miện ngọc trai',price:260,art:shape('M-24-28L-30-50L-15-40L0-58L15-40L30-50L24-28Q0-38-24-28Z','#FFD45E')+stroke('M-23-33Q0-43 23-33',2,'#C98A2B')+'<use href="#pearlSym" x="-7" y="-66" width="14" height="14"/><use href="#pearlSym" x="-35" y="-56" width="11" height="11"/><use href="#pearlSym" x="24" y="-56" width="11" height="11"/>'+bead(0,-40,3.5,'#E2577F')+bead(-13,-35,2.4,'#5BBDE8')+bead(13,-35,2.4,'#5BBDE8')},
+  f_round:{slot:'face',name:'Kính tròn',price:35,art:lens(-13,'rgba(255,255,255,.18)')+lens(13,'rgba(255,255,255,.18)')+stroke('M-3-4q3-3 6 0M-23-3l-7-3M23-3l7-3',2.2,'#6B4A7E')+stroke('M-19-7l5-3M7-7l5-3',1.6,'#fff')},
+  f_heart:{slot:'face',name:'Kính trái tim',price:55,art:stroke('M-2-4q2-3 4 0M-24-5l-7-3M24-5l7-3',2.5,'#B8335F')+[-13,13].map(x=>'<g transform="translate('+x+' -2)"><path d="M0 9C-18-2-13-14-5-11Q-1-10 0-7Q1-10 5-11C13-14 18-2 0 9Z" fill="rgba(255,92,138,.82)" stroke="#B8335F" stroke-width="2"/>'+stroke('M-7-6q2-2 4-1',1.8,'#fff')+'</g>').join('')},
+  f_star:{slot:'face',name:'Kính ngôi sao',price:60,art:stroke('M-3-3h6M-24-4l-7-3M24-4l7-3',2.5,'#B07A12')+[-13,13].map(x=>star(x,-2,14.5,'#B07A12')+star(x,-2,12,'#FFC93C')+stroke('M'+(x-4)+' -4l4-3',1.8,'#fff')).join('')},
+  f_dive:{slot:'face',name:'Kính lặn ống thở',price:80,art:stroke('M29 8Q40 8 39-6V-40',6,'#FF8A5B')+stroke('M39-34V-44',7,'#FFD45E')+'<rect x="-27" y="-14" width="54" height="23" rx="11" fill="rgba(120,215,235,.38)" stroke="#2F7FA0" stroke-width="3.5"/>'+stroke('M-20-8q4-3 9-3',2,'#fff')+stroke('M-27-4l-6-3M27-4l6-3',3,'#2F7FA0')},
+  n_bow:{slot:'neck',name:'Nơ cổ',price:30,art:shape('M0 31l-14-8v17z','#E8455F')+shape('M0 31l14-8v17z','#E8455F')+bead(0,31,4.5,'#FF7A8F')+dot(-9,29,1.4,'#fff')+dot(9,34,1.4,'#fff')},
+  n_shell:{slot:'neck',name:'Dây chuyền vỏ sò',price:40,art:stroke('M-24 22Q-12 40 0 40Q12 40 24 22',2,'#8A6A4A')+scallop(0,43,1.3,'#FFB8A8')+bead(-14,34,2.6,'#7BD3C6')+bead(14,34,2.6,'#7BD3C6')},
+  n_scarf:{slot:'neck',name:'Khăn len sọc biển',price:50,art:shape('M-29 21Q0 40 29 21L30 31Q0 51-30 31Z','#3FA7C4')+stroke('M-18 29l-3 10M-4 33l-2 11M11 32l1 11M23 27l3 9',3,'#fff')+shape('M9 38L24 35L28 58L14 60Z','#3FA7C4')+stroke('M12 47l14-2M13 54l14-2',3,'#fff')+stroke('M15 60v5M20 59v6M26 58v5',2,'#3FA7C4')},
+  n_pearls:{slot:'neck',name:'Chuỗi ngọc trai',price:150,art:[-24,-18,-12,-6,6,12,18,24].map(x=>'<use href="#pearlSym" x="'+(x-4)+'" y="'+(Math.round(40-x*x/36)-4)+'" width="8" height="8"/>').join('')+'<use href="#pearlSym" x="-7" y="36" width="14" height="14"/>'},
+  p_icecream:{slot:'hand',name:'Kem ốc quế',price:35,art:shape('M-8 2L8 2L0 24Z','#E8B567')+stroke('M-5 7l8 9M5 7l-8 9',1,'#B07A35')+bead(0,-3,10,'#FFB3CC')+bead(0,-14,8,'#BDEBC8')+bead(0,-23,3.5,'#E8455F')},
+  p_balloon:{slot:'hand',name:'Bóng bay cá heo',price:45,art:stroke('M0 22Q-6 4 2-14',1.4,'#7A6A8A')+shape('M-14-24Q-6-42 10-36Q18-32 18-24L26-30Q27-20 22-14L16-18Q6-8-8-14L-18-14Z','#7FC8EC')+dot(-6,-26,2.2,INK)+stroke('M-12-19q5 3 9 0',1.4)+stroke('M-2-33q6-3 11 0',2,'#fff')},
+  p_bouquet:{slot:'hand',name:'Bó hoa tặng người ấy',price:60,art:blossom(-9,-9,'#FF7AA2')+blossom(8,-10,'#B88BF0')+blossom(0,-18,'#fff')+blossom(0,-4,'#FFB454')+shape('M-14-2L14-2L2 24H-2Z','#FFE3C2')+shape('M0 10l-10-5v11z','#E8455F')+shape('M0 10l10-5v11z','#E8455F')},
+  p_lantern:{slot:'hand',name:'Đèn lồng sứa',price:90,art:stroke('M12 24L-2-26',3,'#8A6A4A')+stroke('M-2-26V-18',1.4,'#7A6A8A')+'<circle cx="-2" cy="-6" r="19" fill="#FFE9A3" opacity=".4"/>'+shape('M-15-6C-15-23 11-23 11-6Q5-2-2-6Q-9-2-15-6Z','#FFB8E0')+stroke('M-10-4q-4 6 0 12M-2-4q4 7 0 14M6-4q-3 6 2 11',2,'#E884C4')+dot(-7,-12,1.8,INK)+dot(3,-12,1.8,INK)},
+  p_ukulele:{slot:'hand',name:'Đàn ukulele',price:120,art:'<g transform="rotate(-28)"><rect x="-3" y="-34" width="6" height="30" rx="2" fill="#8A5A34'+OUT+'/><rect x="-6" y="-43" width="12" height="11" rx="3" fill="#8A5A34'+OUT+'/><path d="M0-10C-13-10-13 2-8 6C-17 13-12 26 0 26C12 26 17 13 8 6C13 2 13-10 0-10Z" fill="#E8A85A'+OUT+'/><circle cy="7" r="5" fill="#5A3320"/>'+stroke('M-2-36V18M2-36V18',.8,'#FFF3D0')+'</g>'}
+};
+const has=(o,id)=>Object.prototype.hasOwnProperty.call(o,id);
+const hasSkin=id=>has(SKINS,id), hasItem=id=>hasSkin(id)||has(ACC,id);
+const cleanAcc=(a,owned)=>Object.fromEntries(Object.keys(SLOTS).map(s=>{const id=a&&a[s];return [s,has(ACC,id)&&ACC[id].slot===s&&owned.includes(id)?id:'']}));
+const accArt=(acc,slot)=>{const id=acc&&acc[slot];if(!has(ACC,id))return '';return slot==='hand'?'<g transform="translate(-43 20)">'+ACC[id].art+'</g>':ACC[id].art};
 
-// ===== Điểm, nhiệm vụ, cửa hàng =====
+// ===== Ngọc trai (tiền), nhiệm vụ, cửa hàng =====
+const price=n=>n+' <svg class="pi" aria-hidden="true"><use href="#pearlSym"/></svg><span class="sr"> ngọc trai</span>';
+// Quà trên bé của người ấy: hồi sau 25–45 phút, mỗi lần một lượng ngẫu nhiên
+const GIFT_MIN=25*60000, GIFT_MAX=45*60000;
+const rand=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const giftAmount=()=>{const r=Math.random();return r<.7?rand(3,6):r<.95?rand(7,11):rand(15,20)};
+// Mốc xa hơn 45 phút (đồng hồ máy bị chỉnh) thì coi như đã sẵn sàng
+const giftWait=()=>{const left=wallet(me).giftAt-Date.now();return left>0&&left<=GIFT_MAX?left:0};
+const giftReady=()=>!!loaded.wallet&&preview===null&&!giftWait();
+// Linh vật: bé rái cá biển ôm viên ngọc trai
+const OTTER='<circle r="31" fill="#fff" opacity=".92" stroke="#B9E3EC" stroke-width="2.5"/>'
+  +'<g stroke="#4A2E2A" stroke-width="1.8" stroke-linejoin="round"><circle cx="-14" cy="-19" r="5.5" fill="#9C6B4E"/><circle cx="14" cy="-19" r="5.5" fill="#9C6B4E"/><path d="M-19 26Q-24 6-12 2H12Q24 6 19 26Q0 34-19 26Z" fill="#9C6B4E"/><ellipse cy="-9" rx="19" ry="15.5" fill="#B9825E"/></g>'
+  +'<ellipse cy="-4" rx="13" ry="9.5" fill="#F6E3CD"/><path d="M-12-11q4-5 8 0M4-11q4-5 8 0" fill="none" stroke="#3C2A45" stroke-width="2.2" stroke-linecap="round"/><ellipse cy="-6" rx="3.4" ry="2.4" fill="#4A2E2A"/><path d="M-4-2q2 3 4 0q2 3 4 0" fill="none" stroke="#4A2E2A" stroke-width="1.4" stroke-linecap="round"/><path d="M-9-4l-10-2M-9-1l-10 2M9-4l10-2M9-1l10 2" stroke="#7A5444" stroke-width=".9" stroke-linecap="round"/><circle cx="-12" cy="-5" r="2.6" fill="#FF9DB6" opacity=".75"/><circle cx="12" cy="-5" r="2.6" fill="#FF9DB6" opacity=".75"/>'
+  +'<use href="#pearlSym" x="-13" y="3" width="26" height="26"/>'
+  +'<g fill="#8A5C42" stroke="#4A2E2A" stroke-width="1.6"><path d="M-19 11q-1 10 10 10q5-1 3-6q-5 1-7-6q-4-3-6 2z"/><path d="M19 11q1 10-10 10q-5-1-3-6q5 1 7-6q4-3 6 2z"/></g>'
+  +'<g class="shine" fill="#FFC93C"><path d="M23-24l2.4 5.600 5.600 2.4-5.600 2.4-2.4 5.600-2.4-5.600-5.600-2.4 5.600-2.4zM-26 12l1.600 3.4 3.4 1.600-3.4 1.600-1.600 3.4-1.600-3.4-3.4-1.600 3.4-1.600z"/></g>';
+let giftTimer=0;
+function drawGift(){
+  clearTimeout(giftTimer);
+  const old=$('pearls').querySelector('.gift'), ready=giftReady(), o=other();
+  const wait=giftWait();if(wait&&session)giftTimer=setTimeout(render,wait+300);
+  const label=$('pearls').querySelector('[data-name="'+o+'"]');
+  if(!ready||!session||!label){if(old)old.remove();return}
+  const x=Number(label.getAttribute('x')), at=x+(x>170?40:-40);
+  const spot=Math.max(34,Math.min(306,at));
+  if(old&&old.dataset.at===String(spot))return;
+  if(old)old.remove();
+  const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+  g.setAttribute('class','gift');g.setAttribute('transform','translate('+spot+' 68)');g.dataset.at=spot;
+  g.setAttribute('role','button');g.setAttribute('tabindex','0');g.setAttribute('aria-label','Rái cá đang ôm ngọc trai ở bé của '+fullName(o)+'. Chạm để nhận');
+  g.innerHTML='<g class="bob">'+OTTER+'</g>';
+  g.onclick=()=>collectGift(g);g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();collectGift(g)}};
+  $('pearls').append(g);
+}
+function floatGain(from,n){
+  const r=from.getBoundingClientRect(), d=el('div','gain');
+  d.innerHTML='+'+n+' <svg class="pi" aria-hidden="true"><use href="#pearlSym"/></svg>';
+  d.style.left=Math.min(innerWidth-100,Math.max(8,r.left))+'px';d.style.top=Math.max(8,r.top)+'px';document.body.append(d);
+  if(calm.matches||!d.animate)return setTimeout(()=>d.remove(),1500);
+  d.animate([{transform:'translateY(10px) scale(.6)',opacity:0},{transform:'translateY(-12px) scale(1.1)',opacity:1,offset:.25},{transform:'translateY(-70px) scale(1)',opacity:0}],{duration:1600,easing:'ease-out',fill:'forwards'}).onfinish=()=>d.remove();
+}
+async function collectGift(from){
+  if(!giftReady()||paying)return;
+  const who=other(), n=giftAmount(), r=from.getBoundingClientRect(), spot={getBoundingClientRect:()=>r};
+  const ok=await updateWallet(x=>giftWait()?null:{...x,points:x.points+n,giftAt:Date.now()+rand(GIFT_MIN,GIFT_MAX)});
+  if(!ok)return;
+  sfx('gift');floatGain(spot,n);seePing(who);act(who,'dance',2600);
+  bubble('Bạn nhận được '+n+' ngọc trai từ bé của '+callName(who)+'! Lát nữa quay lại nha.');
+}
 function wallet(who){
   const w=data.wallet[who]||{}, t=today();
-  return {points:Math.max(0,Number(w.points)||0),owned:Array.isArray(w.owned)?w.owned.filter(hasSkin):[],skin:hasSkin(w.skin)?w.skin:'',
+  const owned=Array.isArray(w.owned)?w.owned.filter(hasItem):[];
+  return {points:Math.max(0,Number(w.points)||0),owned,skin:hasSkin(w.skin)?w.skin:'',acc:cleanAcc(w.acc,owned),giftAt:Number(w.giftAt)||0,
     claimed:w.claimDate===t&&Array.isArray(w.claimed)?w.claimed:[],claimDate:t,gameEarned:w.gameDate===t?Number(w.gameEarned)||0:0,gameDate:t};
 }
 const GAME_CAP=100;
 let paying=false;
 async function updateWallet(change){
-  if(paying)return false;if(!loaded.wallet){say('Cần có mạng để nhận điểm hoặc đổi đồ.');return false}paying=true;
+  if(paying)return false;if(!loaded.wallet){say('Cần có mạng để nhận ngọc trai hoặc đổi đồ.');return false}paying=true;
   const who=me,next=change(wallet(who));
   const ok=next?await save('wallet',who,next):false;
   paying=false;if(ok)render();return ok;
@@ -816,29 +971,41 @@ const TASKS=[
 let shopKey='';
 function drawShop(){
   const w=wallet(me);
-  $('coin').textContent=w.points+' điểm';$('balance').textContent=w.points;
-  $('gameLimit').textContent='Hôm nay đã nhận '+w.gameEarned+'/'+GAME_CAP+' điểm từ trò chơi.'+(w.gameEarned>=GAME_CAP?' Vẫn chơi vui được, mai nhận điểm tiếp nhé.':'');
+  $('coinNum').textContent=w.points;$('balance').textContent=w.points;$('coin').setAttribute('aria-label','Bạn có '+w.points+' ngọc trai. Mở cửa hàng');
+  $('gameLimit').textContent='Hôm nay đã nhận '+w.gameEarned+'/'+GAME_CAP+' ngọc trai từ trò chơi.'+(w.gameEarned>=GAME_CAP?' Vẫn chơi vui được, mai nhận tiếp nhé.':'');
   const states=TASKS.map(t=>w.claimed.includes(t.id)?2:t.done()?1:0);
-  const key=[me,w.points,w.owned.join(),w.skin,states.join(),TASKS[4].note()].join('|');
+  const key=[me,w.points,w.owned.join(),w.skin,Object.values(w.acc),states.join(),TASKS[4].note(),stageAt(daysIn())].join('|');
   if(key===shopKey)return;shopKey=key;
-  $('p-tasks').replaceChildren(...TASKS.map((t,i)=>{
+  $('p-tasks').replaceChildren(el('p','muted','Thêm một cách nhận: khi thấy bé rái cá ôm ngọc cạnh bé của người ấy, hãy chạm vào. Quà hồi sau khoảng 25–45 phút.'),...TASKS.map((t,i)=>{
     const row=el('div','card task'),info=el('div'),b=el('button',states[i]===1?'primary':'',['Chưa xong','Nhận','Đã nhận'][states[i]]);
-    info.append(el('b','',t.name),el('small','muted','+'+t.pts+' điểm'+(t.note?' · '+t.note():'')));
+    const sub=el('small','muted');sub.innerHTML=price('+'+t.pts);if(t.note)sub.append(' · '+t.note());info.append(el('b','',t.name),sub);
     b.type='button';b.disabled=states[i]!==1;b.dataset.task=t.id;
-    b.onclick=async()=>{if(await updateWallet(x=>x.claimed.includes(t.id)||!t.done()?null:{...x,points:x.points+t.pts,claimed:[...x.claimed,t.id]})){hearts($('balance'));say('Bạn được cộng '+t.pts+' điểm.')}};
+    b.onclick=async()=>{if(await updateWallet(x=>x.claimed.includes(t.id)||!t.done()?null:{...x,points:x.points+t.pts,claimed:[...x.claimed,t.id]})){hearts($('balance'));sfx('coin');say('Bạn được cộng '+t.pts+' ngọc trai.')}};
     row.append(info,b);return row}));
-  const girl=me==='tom',grid=el('div','skins');
-  [['',{name:'Mặc định',land:'Theo giai đoạn lớn',price:0}],...Object.entries(SKINS)].forEach(([id,s])=>{
-    const card=el('div','card skin'),own=!id||w.owned.includes(id),on=w.skin===id;
-    card.innerHTML='<svg viewBox="-60 -66 120 134" aria-hidden="true">'+shellPearl(girl,'Vui',Math.max(2,stageAt(daysIn())),'',id).replace(/class="[^"]*"/g,'')+'</svg>';
-    const b=el('button',own&&!on?'primary':'',on?'Đang mặc':own?'Mặc':'Mua · '+s.price);
-    b.type='button';b.dataset.skin=id||'none';b.disabled=on||(!own&&w.points<s.price);
-    b.onclick=async()=>{
-      if(own){if(await updateWallet(x=>({...x,skin:id})))say('Đã thay trang phục.');return}
-      if(!b.dataset.sure){b.dataset.sure=1;b.textContent='Chạm lần nữa để mua';return}
-      if(await updateWallet(x=>x.owned.includes(id)||x.points<s.price?null:{...x,points:x.points-s.price,owned:[...x.owned,id],skin:id})){hearts($('balance'));say('Đã mua và mặc "'+s.name+'".')}};
-    card.append(el('b','',s.name),el('small','',s.land),b);grid.append(card)});
+  const girl=me==='tom',st=Math.max(2,stageAt(daysIn()));
+  // item: một thẻ đồ; wear(x) trả về ví sau khi mặc / đeo (hoặc tháo)
+  const item=(id,name,sub,cost,own,on,art,wear,offLabel)=>{
+    const card=el('div','card skin');
+    card.innerHTML='<svg viewBox="-66 -70 132 140" aria-hidden="true">'+art.replace(/class="[^"]*"/g,'')+'</svg>';
+    const btn=el('button',own&&!on?'primary':'');btn.type='button';btn.dataset.skin=id||'none';
+    if(on)btn.textContent=offLabel||'Đang mặc';else if(own)btn.textContent=offLabel?'Đeo':'Mặc';else btn.innerHTML='Mua · '+price(cost);
+    btn.disabled=(on&&!offLabel)||(!own&&w.points<cost);
+    btn.onclick=async()=>{
+      if(own){if(await updateWallet(wear)){sfx('equip');say(on?'Đã tháo ra.':'Đã thay đồ cho bé.')}return}
+      if(!btn.dataset.sure){btn.dataset.sure=1;btn.textContent='Chạm lần nữa để mua';sfx('tap');return}
+      if(await updateWallet(x=>x.owned.includes(id)||x.points<cost?null:wear({...x,points:x.points-cost,owned:[...x.owned,id]}))){sfx('buy');hearts($('balance'));say('Đã mua "'+name+'".')}};
+    card.append(el('b','',name));if(sub)card.append(el('small','',sub));card.append(btn);return card};
+  const grid=el('div','skins');
+  [['',{name:'Mặc định',land:'Theo giai đoạn lớn',price:0}],...Object.entries(SKINS)].forEach(([id,k])=>
+    grid.append(item(id,k.name,k.land,k.price,!id||w.owned.includes(id),w.skin===id,shellPearl(girl,'Vui',st,'',id,w.acc),x=>({...x,skin:id}))));
   $('p-skins').replaceChildren(el('p','muted','Trang phục mặc cho bé của bạn. Đây là hình cách điệu lấy cảm hứng từ trang phục các nơi.'),grid);
+  const parts=[el('p','muted','Mỗi vị trí đeo một món, phối cùng trang phục nào cũng được.')];
+  Object.entries(SLOTS).forEach(([slot,title])=>{
+    const g=el('div','skins');
+    Object.entries(ACC).filter(([,k])=>k.slot===slot).forEach(([id,k])=>{const on=w.acc[slot]===id;
+      g.append(item(id,k.name,'',k.price,w.owned.includes(id),on,shellPearl(girl,'Vui',st,'',w.skin,{...w.acc,[slot]:id}),x=>({...x,acc:{...x.acc,[slot]:on?'':id}}),'Tháo'))});
+    parts.push(el('h2','',title),g)});
+  $('p-acc').replaceChildren(...parts);
 }
 document.querySelectorAll('[data-seg]').forEach(b=>b.onclick=()=>{stopGame();say('');
   document.querySelectorAll('[data-seg]').forEach(x=>{x.setAttribute('aria-pressed',x===b);$('p-'+x.dataset.seg).hidden=x!==b})});
@@ -851,8 +1018,8 @@ function stopGame(){gameTimers.forEach(t=>{clearTimeout(t);clearInterval(t)});ga
 function openGame(kind){stopGame();say('');$('stageGame').hidden=false;$('board').className=kind;$('stageGame').scrollIntoView({block:'center'})}
 async function reward(points,text){
   const gain=Math.min(points,GAME_CAP-wallet(me).gameEarned);
-  if(gain>0&&await updateWallet(x=>({...x,points:x.points+gain,gameEarned:x.gameEarned+gain}))){$('gameInfo').textContent=text+' +'+gain+' điểm!';hearts($('gameInfo'))}
-  else $('gameInfo').textContent=text+(points>0?' Chưa cộng thêm điểm.':'');
+  if(gain>0&&await updateWallet(x=>({...x,points:x.points+gain,gameEarned:x.gameEarned+gain}))){$('gameInfo').textContent=text+' +'+gain+' ngọc trai!';sfx('win');hearts($('gameInfo'))}
+  else $('gameInfo').textContent=text+(points>0?' Chưa cộng thêm ngọc trai.':'');
 }
 $('quitGame').onclick=stopGame;
 const ITEMS={
@@ -868,7 +1035,7 @@ $('startCatch').onclick=()=>{
     b.type='button';b.setAttribute('aria-label',{pearl:'Ngọc trắng',gold:'Ngọc vàng',jelly:'Sứa'}[kind]);b.dataset.item=kind;
     b.innerHTML='<svg viewBox="-24 -26 48 52" aria-hidden="true">'+ITEMS[kind]+'</svg>';
     b.style.left=Math.random()*80+'%';if(calm.matches)b.style.top=Math.random()*250+'px';
-    b.onpointerdown=b.onclick=()=>{if(!b.isConnected)return;b.remove();score=Math.max(0,score+{pearl:1,gold:3,jelly:-2}[kind]);show()};
+    b.onpointerdown=b.onclick=()=>{if(!b.isConnected)return;b.remove();sfx(kind);score=Math.max(0,score+{pearl:1,gold:3,jelly:-2}[kind]);show()};
     $('board').append(b);later(()=>b.remove(),calm.matches?1800:2800)};
   gameTimers.push(setInterval(spawn,550));
   gameTimers.push(setInterval(()=>{left--;if(left>0)return show();gameTimers.forEach(t=>{clearTimeout(t);clearInterval(t)});gameTimers=[];$('board').replaceChildren();$('board').className='';reward(Math.min(30,score),'Hết giờ, bạn được '+score+' ngọc.')},1000));
@@ -881,13 +1048,115 @@ $('startMatch').onclick=()=>{
   const hide=b=>{b.className='';b.textContent='?';b.setAttribute('aria-label','Thẻ úp')};
   deck.forEach(n=>{const b=el('button');b.type='button';b.dataset.card=n;hide(b);
     b.onclick=()=>{if(lock||b.classList.contains('open'))return;
-      b.className='open';b.setAttribute('aria-label',['Cá voi','Rùa','Bạch tuộc','Cua','Cá ngựa','Cá nóc'][n]);b.innerHTML='<svg viewBox="-42 -44 84 74" aria-hidden="true">'+ANIMALS[n]+'</svg>';
+      b.className='open';sfx('flip');b.setAttribute('aria-label',['Cá voi','Rùa','Bạch tuộc','Cua','Cá ngựa','Cá nóc'][n]);b.innerHTML='<svg viewBox="-42 -44 84 74" aria-hidden="true">'+ANIMALS[n]+'</svg>';
       if(!first){first=b;return}
       moves++;$('gameInfo').textContent='Lượt lật: '+moves;
-      if(first.dataset.card===b.dataset.card){first=null;if(++found===6)reward(moves<=10?30:moves<=16?20:10,'Xong sau '+moves+' lượt.')}
+      if(first.dataset.card===b.dataset.card){first=null;sfx('pair');if(++found===6)reward(moves<=10?30:moves<=16?20:10,'Xong sau '+moves+' lượt.')}
       else{lock=true;const a=first;first=null;later(()=>{hide(a);hide(b);lock=false},900)}};
     $('board').append(b)});
 };
+
+// ===== Âm thanh biển (tạo bằng WebAudio, không cần tệp nhạc) =====
+const SND=Object.assign({fx:true,waves:true,vol:60,mute:false},(()=>{try{return JSON.parse(local.get('sound'))||{}}catch(e){return {}}})());
+let ac=null, outGain, fxBus, wet, waveBus, waveNodes=null, dripTimer=0;
+const NOTE={C4:261.6,E4:329.6,G4:392,A4:440,C5:523.3,D5:587.3,E5:659.3,G5:784,A5:880,C6:1046.5,D6:1174.7,E6:1318.5,G6:1568};
+function setupAudio(){
+  const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
+  ac=new AC();
+  outGain=ac.createGain();outGain.connect(ac.destination);
+  fxBus=ac.createGain();fxBus.gain.value=1.8;fxBus.connect(outGain);
+  // tiếng vọng mềm như ở dưới nước
+  wet=ac.createGain();wet.gain.value=.28;
+  const delay=ac.createDelay(1), back=ac.createGain(), soft=ac.createBiquadFilter();
+  delay.delayTime.value=.21;back.gain.value=.3;soft.type='lowpass';soft.frequency.value=2200;
+  wet.connect(delay);delay.connect(soft);soft.connect(back);back.connect(delay);soft.connect(outGain);
+  waveBus=ac.createGain();waveBus.gain.value=0;waveBus.connect(outGain);
+  return true;
+}
+function voice(freq,at,len,{gain=.18,type='sine',to=0,attack=.008}={}){
+  const o=ac.createOscillator(), g=ac.createGain(), t=ac.currentTime+at;
+  o.type=type;o.frequency.setValueAtTime(freq,t);if(to)o.frequency.exponentialRampToValueAtTime(to,t+len);
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(gain,t+attack);g.gain.exponentialRampToValueAtTime(.0001,t+len);
+  o.connect(g);g.connect(fxBus);g.connect(wet);o.start(t);o.stop(t+len+.05);
+}
+const blub=(f,at=0,gain=.16)=>voice(f,at,.11,{gain,to:f*2.1});
+const bell=(f,at=0,gain=.13,len=.7)=>{voice(f,at,len,{gain});voice(f*3.99,at,len*.22,{gain:gain*.18})};
+const run=(notes,step,gain,len)=>notes.forEach((n,i)=>bell(NOTE[n],i*step,gain,len));
+const SOUNDS={
+  tap:()=>blub(430,0,.1), tab:()=>blub(290,0,.09),
+  poke:()=>{const f=340+Math.random()*220;blub(f);blub(f*1.35,.09,.1)},
+  mood:m=>run({Vui:['E5','A5'],'Ổn':['C5','E5'],'Mệt':['E5','C5'],'Nhớ':['A5','E5'],'Giận':['D5','C5'],'Yêu':['G5','C6']}[m]||['C5','G5'],.14,.12,.8),
+  gift:()=>{run(['C5','E5','G5','A5','C6','E6'],.085,.11,.9);[0,1,2,3].forEach(i=>blub(500+i*130,.08+i*.11,.06))},
+  coin:()=>run(['G5','D6'],.09,.13,.6),
+  buy:()=>run(['C5','E5','G5','C6'],.1,.13,.9),
+  equip:()=>run(['A5','C6','E6'],.06,.08,.5),
+  win:()=>run(['C5','E5','G5','A5','C6','G5','C6'],.11,.12,.8),
+  // tiếng cá voi gọi xa, kèm hai nốt chuông
+  miss:()=>{voice(250,0,.75,{gain:.12,to:470,attack:.25});voice(470,.62,.9,{gain:.1,to:300,attack:.15});run(['E5','A5'],.2,.07,1)},
+  ping:()=>run(['E5','A5','E6'],.16,.1,1.1),
+  save:()=>run(['E5','G5'],.08,.08,.5),
+  bubble:()=>[0,1,2].forEach(i=>blub(360+i*110,i*.08,.1)),
+  cheer:()=>{run(['G5','C6','E6','G6'],.07,.09,.4);[0,1,2,3,4].forEach(i=>blub(420+Math.random()*500,i*.06,.06))},
+  pearl:()=>bell(NOTE.A5,0,.1,.3), gold:()=>run(['C6','E6'],.05,.11,.4),
+  jelly:()=>voice(330,0,.28,{gain:.14,type:'triangle',to:130}),
+  flip:()=>blub(520,0,.08), pair:()=>run(['G5','C6'],.08,.11,.5),
+  err:()=>{voice(NOTE.E4,0,.18,{gain:.1});voice(NOTE.C4,.12,.25,{gain:.1})}
+};
+function sfx(name,arg){if(!ac||SND.mute||!SND.fx||!SOUNDS[name]||document.hidden)return;SOUNDS[name](arg)}
+// Sóng vỗ: nhiễu trầm dâng và rút theo nhịp chậm, thêm lớp bọt trắng
+function noiseBuffer(sec,brown){
+  const n=Math.floor(ac.sampleRate*sec), fade=Math.floor(ac.sampleRate*.5), raw=new Float32Array(n+fade);let last=0;
+  for(let i=0;i<raw.length;i++){const w=Math.random()*2-1;if(brown){last=(last+.02*w)/1.02;raw[i]=last*3.2}else raw[i]=w*.5}
+  const buf=ac.createBuffer(1,n,ac.sampleRate), out=buf.getChannelData(0);
+  out.set(raw.subarray(0,n));for(let i=0;i<fade;i++){const k=i/fade;out[i]=raw[i]*k+raw[n+i]*(1-k)}
+  return buf;
+}
+function startWaves(){
+  if(waveNodes)return;
+  const made=[];
+  const lfo=(rate,depth,target)=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=rate;g.gain.value=depth;o.connect(g);g.connect(target);o.start();made.push(o)};
+  const layer=(sec,brown,type,freq,level)=>{const src=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();src.buffer=noiseBuffer(sec,brown);src.loop=true;f.type=type;f.frequency.value=freq;g.gain.value=level;src.connect(f);f.connect(g);g.connect(waveBus);src.start();made.push(src);return {f,g}};
+  const sea=layer(9,true,'lowpass',520,.22), foam=layer(7,false,'bandpass',1500,.014);
+  lfo(.095,.14,sea.g.gain);lfo(.095,240,sea.f.frequency);lfo(.061,.05,sea.g.gain);lfo(.095,.011,foam.g.gain);
+  waveBus.gain.cancelScheduledValues(ac.currentTime);waveBus.gain.setValueAtTime(.0001,ac.currentTime);waveBus.gain.linearRampToValueAtTime(.65,ac.currentTime+2.5);
+  waveNodes=made;drip();
+}
+// thỉnh thoảng có bong bóng hoặc tiếng chuông xa
+function drip(){
+  clearTimeout(dripTimer);
+  dripTimer=setTimeout(()=>{if(!waveNodes)return;if(!document.hidden){
+    if(Math.random()<.6)[0,1,2].slice(0,1+Math.floor(Math.random()*3)).forEach(i=>blub(500+Math.random()*500,i*.13,.025));
+    else run(Math.random()<.5?['E5','A5']:['G5','D6'],.5,.025,2)}
+    drip()},9000+Math.random()*11000);
+}
+function stopWaves(){clearTimeout(dripTimer);if(!waveNodes)return;waveNodes.forEach(n=>n.stop());waveNodes=null;waveBus.gain.value=0}
+function applySound(){
+  local.set('sound',JSON.stringify(SND));
+  const on=!SND.mute&&(SND.fx||SND.waves);
+  $('sndBtn').setAttribute('aria-pressed',!SND.mute);$('sndBtn').setAttribute('aria-label',SND.mute?'Âm thanh đang tắt. Chạm để bật':'Âm thanh đang bật. Chạm để tắt');
+  $('sndOn').style.display=SND.mute?'none':'';$('sndOff').style.display=SND.mute?'':'none';
+  $('sWaves').checked=SND.waves;$('sFx').checked=SND.fx;$('sVol').value=SND.vol;
+  if(!ac)return;
+  outGain.gain.value=Math.max(0,Math.min(100,SND.vol))/100;
+  if(on&&!document.hidden){if(ac.state!=='running')ac.resume().catch(()=>{});SND.waves?startWaves():stopWaves()}
+  else{stopWaves();ac.suspend().catch(()=>{})}
+}
+// Trình duyệt chỉ cho phát tiếng sau lần chạm đầu tiên
+function wakeAudio(){
+  if(SND.mute||(!SND.fx&&!SND.waves))return;
+  if(!ac){if(setupAudio())applySound();return}
+  if(ac.state!=='running'&&!document.hidden)ac.resume().catch(()=>{});
+}
+['pointerdown','keydown','click'].forEach(t=>addEventListener(t,wakeAudio,true));
+document.addEventListener('visibilitychange',()=>{if(ac)applySound()});
+$('sndBtn').onclick=()=>{SND.mute=!SND.mute;if(!SND.mute){if(!SND.fx&&!SND.waves)SND.fx=SND.waves=true;wakeAudio()}applySound();sfx('bubble')};
+$('sWaves').onchange=e=>{SND.waves=e.target.checked;if(SND.waves)SND.mute=false;wakeAudio();applySound()};
+$('sFx').onchange=e=>{SND.fx=e.target.checked;if(SND.fx)SND.mute=false;wakeAudio();applySound();sfx('bubble')};
+$('sVol').oninput=e=>{SND.vol=Number(e.target.value);applySound()};
+$('sVol').onchange=()=>sfx('coin');
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>sfx('tab')));
+['gear','evInfo','journeyBtn','spin','startCatch','startMatch'].forEach(id=>$(id).addEventListener('click',()=>sfx('tap')));
+applySound();
 
 $('mDate').value=today();
 render();
@@ -897,6 +1166,7 @@ if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(
 setInterval(render,15000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
 </script>
+<script src="update.js"></script>
 <script src="config.js"></script>
 <script type="module" src="cloud.js"></script>
 </body>
